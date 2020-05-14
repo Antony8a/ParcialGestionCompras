@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "qARaaznZ2U53nhFjVzttCNiR1bLtIPCgLSmh5B7flj10Iikbfb4QFksVnUHevCcn+Ildq4dYKQ17PhSIpASimg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\anton\\Desktop\\Parcial2\\Entity\\Entity.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\anton\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}
