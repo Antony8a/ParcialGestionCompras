@@ -48,6 +48,8 @@ namespace Logica
             return compra;
         }
 
+        
+
         public class GuardarCompraResponse
         {
             public GuardarCompraResponse(Compra compra)

@@ -40,6 +40,8 @@ namespace Parcial2.Controllers
             return compraViewModel;
         }
         
+        
+
         // POST: api/Compra
         [HttpPost]
         public ActionResult<CompraViewModel> Post(CompraInputModel compraInput)

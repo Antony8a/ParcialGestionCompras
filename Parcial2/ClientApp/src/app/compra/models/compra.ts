@@ -1,7 +1,7 @@
 export class Compra {
     idCliente: string;
-    nombre: string;
+    nombreCliente: string;
     ruta:string;
-    valor:string;
+    valor:string; 
     idCompra:string;
 }

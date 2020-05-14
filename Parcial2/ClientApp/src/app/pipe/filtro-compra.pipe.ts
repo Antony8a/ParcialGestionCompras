@@ -10,7 +10,7 @@ export class FiltroCompraPipe implements PipeTransform {
     if (searchText == null) return compra;
     return compra.filter(p=>p.idCliente.toLowerCase()
     .indexOf(searchText.toLowerCase()) !== -1 ||
-    p.nombre.toLowerCase()
+    p.nombreCliente.toLowerCase()
     .indexOf(searchText.toLowerCase()) !== -1||
     p.ruta.toLowerCase()
     .indexOf(searchText.toLowerCase()) !== -1||

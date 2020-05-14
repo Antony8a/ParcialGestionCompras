@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
@@ -16,6 +16,9 @@ import { CompraConsultaComponent } from './compra/models/compra-consulta/compra-
 import { AppRoutingModule } from './app-routing.module';
 import { FiltroCompraPipe } from './pipe/filtro-compra.pipe';
 import { AlertModalComponent } from './@base/alert-modal/alert-modal.component';
+import { CompraService } from './services/compra.service';
+import { ClienteService } from './services/cliente.service';
+
 
 @NgModule({
   declarations: [
@@ -32,6 +35,7 @@ import { AlertModalComponent } from './@base/alert-modal/alert-modal.component';
     AlertModalComponent
   ],
   imports: [
+    ReactiveFormsModule,
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
@@ -42,7 +46,7 @@ import { AlertModalComponent } from './@base/alert-modal/alert-modal.component';
     ]),
     AppRoutingModule
   ],
-  providers: [],
+  providers: [CompraService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
