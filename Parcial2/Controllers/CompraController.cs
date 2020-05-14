@@ -34,9 +34,9 @@ namespace Parcial2.Controllers
         [HttpGet("{identificacion}")]
         public ActionResult<CompraViewModel> Get(string identificacion)
         {
-            var cliente = _compraService.BuscarxIdentificacion(identificacion);
-            if (cliente == null) return NotFound();
-            var compraViewModel = new CompraViewModel(cliente);
+            var compra = _compraService.BuscarxIdentificacion(identificacion);
+            if (compra == null) return NotFound();
+            var compraViewModel = new CompraViewModel(compra);
             return compraViewModel;
         }
         

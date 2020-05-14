@@ -2,12 +2,12 @@
   <div class="form-group">
 
     <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre Cliente" 
-         [ngClass]="{ 'is-invalid': control.nombre.errors }" >
+         [ngClass]="{ 'is-invalid': control.nombre.errors }" #bandera >
         <div *ngIf=" control.nombre.errors" class="invalid-feedback">
           <div *ngIf="control.nombre.errors.required">El nombre es requerido</div>
         </div>
       <div class="input-group-prepend">
-        <button class="btn btn-outline-secondary" type="button" (click)="getNombre()">Consultar</button>
+        <button class="btn btn-outline-secondary" type="button" (click)="getId(bandera.value)">Consultar</button>
       </div>
 
     

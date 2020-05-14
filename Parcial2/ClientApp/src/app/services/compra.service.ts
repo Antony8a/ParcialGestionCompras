@@ -26,8 +26,8 @@ export class CompraService {
     this.baseUrl = baseUrl;
   }
 
-  getNombre(id: string): Observable<Compra> {
-    const url = `${this.baseUrl + 'api/cliente'}/${id}`;
+  getId(id: string): Observable<Compra> {
+    const url = `${this.baseUrl + 'api/compra'}/${id}`;
     return this.http.get<Compra>(url, httpOptions)
       .pipe(
         catchError(this.handleErrorService.handleError<Compra>('Buscar Compra', null))
