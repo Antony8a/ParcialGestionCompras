@@ -1,1 +1,37 @@
-<p>compra-consulta works!</p>
+<div class="body">
+    <div class="return"><br>
+        
+    </div>
+    <div class="container-1"> 
+        <div class="row">
+            <div class="col">
+                <input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Ingrese el nombre">
+            </div>
+        </div><br>
+        
+        <table class="table table-light table-striped" *ngIf='compras && compras.length'>
+            <thead>
+                <tr>
+                    <th class="text-center" scope="col">#</th>
+                    <th class="text-center" scope="col">IdCliente</th>
+                    <th class="text-center" scope="col">Nombre </th>
+                    <th class="text-center" scope="col">Ruta</th>
+                    <th class="text-center" scope="col">Valor</th>
+                    <th class="text-center" scope="col">idCompra</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let compra of compras|filtroCompra:searchText; index as i">
+                    <th scope="row">{{ i + 1 }}</th>
+                    <td class="text-center" >{{ compra.idCompra }} </td>
+                    <td class="text-center" >{{ compra.nombreCliente }}</td>
+                    <td class="text-center" >{{ compra.ruta }}</td>
+                    <td class="text-center" >{{ compra.valor }}</td>
+                    <td class="text-center" >{{ compra.idCompra }}</td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

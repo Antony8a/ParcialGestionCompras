@@ -34,6 +34,13 @@ export class CompraService {
       );
   }
 
+  get(): Observable<Compra[]> {
+    return this.http.get<Compra[]>(this.baseUrl + 'api/Compra')
+      .pipe(
+        catchError(this.handleErrorService.handleError<Compra[]>('Consulta compra', null))
+      );
+  }
+
   post(Compra: Compra): Observable<Compra> {
     return this.http.post<Compra>(this.baseUrl + 'api/Compra', Compra)
       .pipe(
