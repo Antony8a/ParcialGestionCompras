@@ -10,10 +10,10 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class CompraConsultaComponent implements OnInit {
 
-  compras:Compra[];
   compra:Compra;
-  searchText: string;
-  closeResult: string;
+  compras:Compra[];
+  s: string ;
+
   constructor(
     private compraService: CompraService,
     private modalService: NgbModal) { } 

@@ -5,7 +5,7 @@
     <div class="container-1"> 
         <div class="row">
             <div class="col">
-                <input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Ingrese el nombre">
+                <input [(ngModel)]="s" type="text" class="form-control" placeholder="Type to filter">
             </div>
         </div><br>
         
@@ -22,7 +22,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let compra of compras|filtroCompra2:searchText; index as i">
+                <tr *ngFor="let compra of compras|filtroCompra:s; index as i">
                     <th scope="row">{{ i + 1 }}</th>
                     <td class="text-center" >{{ compra.idCompra }} </td>
                     <td class="text-center" >{{ compra.nombreCliente }}</td>

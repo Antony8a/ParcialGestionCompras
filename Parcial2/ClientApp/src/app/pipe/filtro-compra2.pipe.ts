@@ -6,13 +6,15 @@ import { Compra } from '../compra/models/compra';
 })
 export class FiltroCompra2Pipe implements PipeTransform {
 
+ 
+
   transform(compra: Compra[], searchText: string): any {
+    console.log(compra);
+    console.log(searchText);
     if (searchText == null) return compra;
-    return compra.filter(p =>
-      p.idCliente.toLowerCase()
-        .indexOf(searchText.toLowerCase()) !== -1 ||
-      p.nombreCliente.toLowerCase()
-        .indexOf(searchText.toLowerCase()) !== -1 );
+      return compra.filter(p => p.idCliente.toLowerCase().indexOf(searchText.toLowerCase()) !== -1
+    );
+    
   }
 
 }

@@ -7,11 +7,14 @@ import { Compra } from '../compra/models/compra';
 export class FiltroCompraPipe implements PipeTransform {
 
   transform(compra: Compra[], searchText: string): any {
+    console.log(compra); console.log(searchText);
     if (searchText == null) return compra;
     return compra.filter(p =>
       p.idCliente.toLowerCase()
-        .indexOf(searchText.toLowerCase()) !== -1 ||
+        .includes(searchText.toLowerCase()) ||
       p.nombreCliente.toLowerCase()
-        .indexOf(searchText.toLowerCase()) !== -1);
+        .includes(searchText.toLowerCase()) ||
+        p.ruta.toLowerCase()
+          .includes(searchText.toLowerCase()));
   }
 }
