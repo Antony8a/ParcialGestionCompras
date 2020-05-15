@@ -16,7 +16,7 @@ const routes: Routes = [
   component: ClienteRegistroComponent
   },
   {
-  path: 'compraRegistro',
+  path: 'compraRegistro/:id',
   component: CompraRegistroComponent
   },
   {

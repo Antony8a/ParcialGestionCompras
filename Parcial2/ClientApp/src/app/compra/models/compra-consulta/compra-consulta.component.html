@@ -22,7 +22,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let compra of compras|filtroCompra:searchText; index as i">
+                <tr *ngFor="let compra of compras|filtroCompra2:searchText; index as i">
                     <th scope="row">{{ i + 1 }}</th>
                     <td class="text-center" >{{ compra.idCompra }} </td>
                     <td class="text-center" >{{ compra.nombreCliente }}</td>

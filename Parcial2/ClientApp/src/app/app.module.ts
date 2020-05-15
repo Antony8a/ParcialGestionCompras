@@ -18,6 +18,7 @@ import { FiltroCompraPipe } from './pipe/filtro-compra.pipe';
 import { AlertModalComponent } from './@base/alert-modal/alert-modal.component';
 import { CompraService } from './services/compra.service';
 import { ClienteService } from './services/cliente.service';
+import { FiltroCompra2Pipe } from './pipe/filtro-compra2.pipe';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { ClienteService } from './services/cliente.service';
     CompraRegistroComponent,
     CompraConsultaComponent,
     FiltroCompraPipe,
-    AlertModalComponent
+    AlertModalComponent,
+    FiltroCompra2Pipe
   ],
   imports: [
     ReactiveFormsModule,

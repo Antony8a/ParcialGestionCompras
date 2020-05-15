@@ -13,7 +13,7 @@
     
                     <div class="form-group">
                         <label>IdCliente</label>
-                        <input type="text" formControlName="idCliente" class="form-control"
+                        <input type="text" formControlName="idCliente" class="form-control" value={{IdCliente_}}
                             [ngClass]="{ 'is-invalid':  control.idCliente.errors }" />
                         <div *ngIf=" control.idCliente.errors" class="invalid-feedback">
                             <div *ngIf="control.idCliente.errors.required">La Identificación del cliente es requerida</div>

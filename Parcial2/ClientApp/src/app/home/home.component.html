@@ -1,16 +1,17 @@
 <form [formGroup]="formGroup">
   <div class="form-group">
 
-    <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre Cliente" 
-         [ngClass]="{ 'is-invalid': control.nombre.errors }" #bandera >
-        <div *ngIf=" control.nombre.errors" class="invalid-feedback">
-          <div *ngIf="control.nombre.errors.required">El nombre es requerido</div>
-        </div>
-      <div class="input-group-prepend">
-        <button class="btn btn-outline-secondary" type="button" (click)="getId(bandera.value)" [disabled]="formGroup.invalid">Consultar</button>
-      </div>
+    <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre Cliente"
+      [ngClass]="{ 'is-invalid': control.nombre.errors }" #bandera>
+    <div *ngIf=" control.nombre.errors" class="invalid-feedback">
+      <div *ngIf="control.nombre.errors.required">El nombre es requerido</div>
+    </div>
+    <div class="input-group-prepend">
+      <button class="btn btn-outline-secondary" type="button" (click)="getId(bandera.value)" (click)="openSm(content) "
+        [disabled]="formGroup.invalid">Consultar</button>
+    </div>
 
-    
+
   </div>
 </form>
 
@@ -19,4 +20,20 @@
     width: 30%;
   }
 </style>
-
+<div>
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Hi cliente :3</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p> {{_nombreCliente}} <br> {{_mensaje}}  &hellip;</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)=" onSubmit()"
+        (click)="modal.close('Close click')" [routerLink]="['/compraRegistro',_ide]" >Proceder a compra</button>
+    </div>
+  </ng-template>
+</div>

@@ -15,36 +15,48 @@ import { ClienteService } from '../services/cliente.service';
 export class HomeComponent {
   formGroup: FormGroup;
   compra: Compra;
-  _id:string;
-  _ide:string;
+  _id: string;
+  _ide: string;public _nombreCliente:string;public _ruta:string;public _valor:string;public _idCompra:string;
+  _mensaje:string;
   constructor(
-    private compraServise: CompraService, 
+    private compraServise: CompraService,
     private formBuilder: FormBuilder,
     private _route: ActivatedRoute,
     private modalService: NgbModal,
-    private clienteService: ClienteService ) 
-    {
-     
-    }
+    private clienteService: ClienteService) {
+
+  }
+
   
+
   ngOnInit() {
+    
     this.buildForm();
     this._id = this._route.snapshot.params.nombre;
-      this.compraServise.getId(this._id).subscribe(p => {
-        if (p != null) {        
-          const messageBox = this.modalService.open(AlertModalComponent)
-          messageBox.componentInstance.title = "Resultado Operación";
-          messageBox.componentInstance.message = 'Compra Encontrado!!! :)';
-        }
-      });
-
-      
+    this.compraServise.getId(this._id).subscribe(p => {
+      if (p != null) {
+        this.PintarInput(p);
+        const messageBox = this.modalService.open(AlertModalComponent)
+        messageBox.componentInstance.title = "Resultado Operación";
+        messageBox.componentInstance.message = 'Compra Encontrado!!! :)';
+      }
+    });
   }
+
+  private PintarInput(compra1: Compra) {
+    this._nombreCliente = compra1.nombreCliente;
+    this._ruta = compra1.ruta;
+    this._valor = compra1.valor;
+    this._idCompra = compra1.idCompra;
+    
+  }
+
   private buildForm() {
     this.compra = new Compra();
-    this.compra.nombreCliente='';
+    this.compra.nombreCliente = '';
     this.formGroup = this.formBuilder.group({
-      nombre:[this.compra.nombreCliente, Validators.required],
+      idCompra:this._ide,
+      nombre: [this.compra.nombreCliente, Validators.required],
     });
   }
 
@@ -54,28 +66,33 @@ export class HomeComponent {
     }
   }
 
-  
+  openSm(content) {
+    this.modalService.open(content, { size: 'sm', centered: true });
+  }
 
-  getId(_ide){
+
+  getId(texto:string) {
+    this._ide=texto;
+    
     this.compra = this.formGroup.value;
-    this.compraServise.getId(_ide).subscribe(p=>{
-      if(p != null){
-        const messageBox = this.modalService.open(AlertModalComponent)
-        messageBox.componentInstance.title = "Resultado Operación";
-        messageBox.componentInstance.message=_ide;
-        this.compra=p;
-      }else{
-        const messageBox = this.modalService.open(AlertModalComponent)
-        messageBox.componentInstance.title = "Resultado Operación";
-        messageBox.componentInstance.message = 'Cliente No Encontrado!!! :)';
-        this.compra=p;
+    this.compraServise.getId(texto).subscribe(p => {
+      if (p != null) {
+        this._mensaje= "Cliente encontrado :DDD";
+        this._nombreCliente=p.nombreCliente;
+        const messageBox = this.modalService.open(this.openSm)
+        this.compra = p;
+      } else {
+        this._mensaje= 'Cliente No Encontrado!!! :o';
+        this._nombreCliente="";
+        const messageBox = this.modalService.open(this.openSm)
+        this.compra = p;
       }
-      
+
     })
   }
 
   get control() { return this.formGroup.controls; }
 
-  
+
 
 }
