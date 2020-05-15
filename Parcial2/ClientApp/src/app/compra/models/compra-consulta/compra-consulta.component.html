@@ -24,7 +24,7 @@
             <tbody>
                 <tr *ngFor="let compra of compras|filtroCompra:s; index as i">
                     <th scope="row">{{ i + 1 }}</th>
-                    <td class="text-center" >{{ compra.idCompra }} </td>
+                    <td class="text-center" >{{ compra.idCliente }} </td>
                     <td class="text-center" >{{ compra.nombreCliente }}</td>
                     <td class="text-center" >{{ compra.ruta }}</td>
                     <td class="text-center" >{{ compra.valor }}</td>
